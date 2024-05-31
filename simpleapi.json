@@ -1,0 +1,879 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Simple API",
+    "version": "v1"
+  },
+  "host": "novo-mule-dev.mynovocure.internal",
+  "basePath": "/simple",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api": {},
+    "/api/ping": {
+      "get": {
+        "operationId": "Ping API",
+        "description": "Get the current health status of this APIsd sdfsdfsdfsd fdsfsdf sd\n",
+        "x-tags": [
+          "Ping"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkDependencies",
+            "description": "Set to true to check and report status of all dependencies, such as system connections and downstream APIs; default is false",
+            "in": "query",
+            "type": "boolean"
+          },
+          {
+            "name": "filter",
+            "description": "Testing",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "minLength": 7,
+            "maxLength": 150
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/PingResponse"
+            }
+          },
+          "429": {
+            "description": "An API request rate limit has been exceeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/errorInfoTooManyRequests"
+            }
+          }
+        },
+        "security": [
+          {
+            "lib.basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/test-null-enum": {
+      "x-amf-description": "Single item of test-null-enum",
+      "get": {
+        "operationId": "Test Null Enum Type",
+        "description": "Testing if a type can be null or enum             \n",
+        "x-tags": [
+          "Test"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "client_id",
+            "description": "client id provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "description": "client secret provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request has succeeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "x-amf-examples": {
+                "two": {
+                  "message": "success."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The server cannot or will not process the request due to something that is perceived to be a client error.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:BAD_RERQUEST",
+                  "errorCode": "400",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The server cannot find the requested resource.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:NOT_FOUND",
+                  "errorCode": "404",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "An API request rate limit has been exceeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": "Quota has been exceeded"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred while processing the API request.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "HTTP:CONNECTIVITY",
+                  "errorCode": "500",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "lib.basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/test-filter-documentation": {
+      "x-amf-description": "Single item of test-filter-documentation",
+      "get": {
+        "operationId": "Test Filter Documentation",
+        "description": "<p>The following endpoint is used to return information about commercial and clinical trial patients that have an indication of GBM. The returned information will be based on the authenticated user.</br></br>        \nWith this endpoint, you can: \n<ul>\n<li>Return a list of patients that you are authorized to view based on your user session</li>\n<li>Filter and sorting the patients results with the supported filter parameters</li>\n<li>Pagination is supported</li>\n<li>Allowed fields for filtering and sorting</li>\n<ul>\n<li><pre>treatmentSiteId</pre></li>\n<li><pre>hcpId</pre></li>\n<li><pre>patientId</pre></li>\n<li><pre>dateOfBirth</pre></li>\n<li><pre>fullName</pre></li>\n<li><pre>createdDate</pre></li>\n</ul>\n</ul>\n</p>\n",
+        "x-tags": [
+          "Testing Filters"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "description": "### Filtering\n* Please use below notation and operation types to specify your filter expressions.\n* Use parentheses to specify multiple logical OR filters to clarify the precedence grouping.\n* Listed below are some examples:\n```\n?filter=treatmentSiteId=='2000172'\n```\nOR\n```\n?filter=treatmentSiteId=='2000172';hcpId=='300093'\n```\nOR\n```\n?filter=treatmentSiteId=='2000172';(fullName=@'Ant',fullName=@'Bruce')\n```\n\n### Filter operation types\n| Operation Type            | 2-symbol notation |\n| --------------------------|:-----------------:|\n| equal to                  | ==                |\n| contains                  | =@                |\n| startswith                | =*                |\n| endswith                  | *=                |\n| greater than              | >>                |\n| less than                 | <<                |\n| greater than or equal to  | >=                |\n| less than or equal to     | <=                |\n| not equal to              | !=                |\n\n## Logical operation types\n\n| Logical operation type    | 1-symbol notation |\n| --------------------------|:-----------------:|\n| logical AND               | ; (semicolon)     |\n| logical OR                | , (comma)         |\n",
+            "required": true,
+            "in": "query",
+            "x-pattern": "\\d{4}(?:-\\d{2}){2}T(?:\\d{2})(?:\\:\\d{2}){2}Z",
+            "type": "string"
+          },
+          {
+            "name": "client_id",
+            "description": "client id provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "description": "client secret provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "The server cannot or will not process the request due to something that is perceived to be a client error.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:BAD_RERQUEST",
+                  "errorCode": "400",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The server cannot find the requested resource.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:NOT_FOUND",
+                  "errorCode": "404",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "An API request rate limit has been exceeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": "Quota has been exceeded"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred while processing the API request.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "HTTP:CONNECTIVITY",
+                  "errorCode": "500",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "lib.basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/invite1": {
+      "x-amf-description": "Single item of invite1",
+      "get": {
+        "operationId": "Authorization",
+        "description": "~~~The following endpoint is used to return information about the current user’s session. There are no input parameters. The returned information will be based on the authenticated user.",
+        "x-tags": [
+          "Invite 1"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "client_id",
+            "description": "client id provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "description": "client secret provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/type"
+            }
+          },
+          "400": {
+            "description": "The server cannot or will not process the request due to something that is perceived to be a client error.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:BAD_RERQUEST",
+                  "errorCode": "400",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No valid credentials found to access the requested resource.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "HTTP:UNAUTHORIZED",
+                  "errorCode": "401",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The server cannot find the requested resource.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:NOT_FOUND",
+                  "errorCode": "404",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "An API request rate limit has been exceeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": "Quota has been exceeded"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred while processing the API request.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "HTTP:CONNECTIVITY",
+                  "errorCode": "500",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "lib.basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/invite2": {
+      "x-amf-description": "Single item of invite2",
+      "get": {
+        "operationId": "Get an invite",
+        "description": "This resource can be used to retrieve one or more invites codes for a given email that were previously generated.       \n",
+        "x-tags": [
+          "Invitation"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "pattern": "^.+@.+\\..+$",
+            "maxLength": 241
+          },
+          {
+            "name": "client_id",
+            "description": "client id provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "description": "client secret provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request has succeeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/type"
+            }
+          },
+          "400": {
+            "description": "The server cannot or will not process the request due to something that is perceived to be a client error.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:BAD_RERQUEST",
+                  "errorCode": "400",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The server cannot find the requested resource.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:NOT_FOUND",
+                  "errorCode": "404",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "An API request rate limit has been exceeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": "Quota has been exceeded"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred while processing the API request.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "HTTP:CONNECTIVITY",
+                  "errorCode": "500",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "lib.basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/register-invite": {
+      "x-amf-description": "Single item of register-invite",
+      "post": {
+        "operationId": "Register a user via IDP",
+        "description": "--Used by the IDP Only. This resource is used during the registraion flow to create a user based on a previous invite code that was generated. If successful, a user wil be created in both the IDP and end system.\n",
+        "x-tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "client_id",
+            "description": "client id provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "description": "client secret provided to you by Novocure API Team",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "x-amf-mediaType": "application/json",
+            "in": "body",
+            "name": "generated",
+            "schema": {
+              "$ref": "#/definitions/type_1"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Resource is created successfully.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/type_2"
+            }
+          },
+          "400": {
+            "description": "The server cannot or will not process the request due to something that is perceived to be a client error.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:BAD_RERQUEST",
+                  "errorCode": "400",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The server cannot find the requested resource.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "APIKIT:NOT_FOUND",
+                  "errorCode": "404",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "An API request rate limit has been exceeded.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": "Quota has been exceeded"
+              }
+            }
+          },
+          "500": {
+            "description": "An internal error occurred while processing the API request.",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "example": {
+                "error": {
+                  "correlationId": "684928d0-a97b-11ed-a4c6-0050562a0fa4",
+                  "errorType": "HTTP:CONNECTIVITY",
+                  "errorCode": "500",
+                  "errorMessage": "A problem occurred"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "lib.basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "PingResponse": {
+      "description": "Represents a standard response structure for API health checks",
+      "x-Hidden": true,
+      "example": {
+        "status": "OK",
+        "apiName": "accelerator-salesforce-sys-api",
+        "apiVersion": "1.3.0",
+        "timestamp": "2020-08-01T13:15:25.000Z",
+        "createdDate": "2020-08-01",
+        "dependencies": [
+          {
+            "name": "Salesforce",
+            "status": "UP"
+          }
+        ]
+      },
+      "type": "object",
+      "required": [
+        "status",
+        "apiName",
+        "apiVersion",
+        "timestamp",
+        "createdDate"
+      ],
+      "properties": {
+        "status": {
+          "description": "Describes the overall status of the API, including system connectivity states. When dependency checks are included, the status identifies whether the API is fully functional (OK), one or more dependencies are down (DEGRADED), or all dependencies are down (OFFLINE).",
+          "enum": [
+            "OK",
+            "DEGRADED",
+            "OFFLINE"
+          ],
+          "type": "string"
+        },
+        "apiName": {
+          "description": "Asset name of the API returning the response",
+          "type": "string",
+          "maxLength": 128
+        },
+        "apiVersion": {
+          "description": "Complete version of the API returning the response; format is major.minor.patch",
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 11
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdDate": {
+          "x-pattern": "(?:19|20)\\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[0-1])",
+          "type": "string",
+          "format": "date"
+        },
+        "dependencies": {
+          "description": "Optional list of connections this API is dependent upon",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PingStatus"
+          }
+        }
+      }
+    },
+    "errorInfoTooManyRequests": {
+      "description": "Represents a standard message body to be returned with error response for Too Many Requests",
+      "example": {
+        "error": "Quota has been exceeded"
+      },
+      "type": "object",
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      }
+    },
+    "type": {
+      "title": "Registration - Get Invite Response",
+      "example": {
+        "email": "jhopkins@jhu.edu",
+        "inviteCode": "062579",
+        "inviteStatus": "Registered",
+        "inviteStatusCode": "01",
+        "numberOfAttempts": 3,
+        "userType": "Healthcare Provider",
+        "createdDateTime": "2023-12-17T05:00:00Z",
+        "registeredDateTime": "2023-12-17T05:12:00Z",
+        "expirationDateTime": "2023-12-17T05:30:00Z"
+      },
+      "type": "object",
+      "required": [
+        "inviteStatusCode",
+        "userType",
+        "expirationDateTime",
+        "email",
+        "numberOfAttempts",
+        "inviteStatus",
+        "inviteCode",
+        "registeredDateTime",
+        "createdDateTime"
+      ],
+      "properties": {
+        "inviteStatusCode": {
+          "$ref": "#/definitions/inviteStatusCode"
+        },
+        "userType": {
+          "$ref": "#/definitions/userType"
+        },
+        "expirationDateTime": {
+          "description": "Date and Time in (UTC TimeZone) the invite will expire. Each experience can have different expiration policys, so experience requirements will determine value. Expiration Date in the past is not permitted.",
+          "example": "2023-12-17T05:30:00Z",
+          "type": "string",
+          "format": "date-time"
+        },
+        "email": {
+          "$ref": "#/definitions/inviteEmail"
+        },
+        "numberOfAttempts": {
+          "description": "Number of attempts it took to register successfully",
+          "example": 3,
+          "type": "integer"
+        },
+        "inviteStatus": {
+          "$ref": "#/definitions/inviteStatus"
+        },
+        "inviteCode": {
+          "$ref": "#/definitions/inviteCode"
+        },
+        "registeredDateTime": {
+          "description": "Time invite was successfully registered",
+          "example": "2024-01-02T15:00:00Z",
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdDateTime": {
+          "description": "Time invite was generated",
+          "example": "2023-12-17T05:00:00Z",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "type_1": {
+      "title": "Registration - Register Invite Request",
+      "example": {
+        "email": "jhopkins@jhu.edu",
+        "inviteCode": "062579"
+      },
+      "type": "object",
+      "required": [
+        "inviteCode",
+        "email"
+      ],
+      "properties": {
+        "inviteCode": {
+          "$ref": "#/definitions/inviteCode"
+        },
+        "email": {
+          "$ref": "#/definitions/inviteEmail"
+        }
+      }
+    },
+    "type_2": {
+      "title": "Registration - Register Invite Response",
+      "example": {
+        "message": "Invite is successfully registered."
+      },
+      "type": "object",
+      "required": [
+        "message"
+      ],
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/message"
+        }
+      }
+    },
+    "PingStatus": {
+      "description": "Represents a dependency status result for ping responses",
+      "type": "object",
+      "required": [
+        "name",
+        "status"
+      ],
+      "properties": {
+        "name": {
+          "description": "Logical name of the connection (e.g., system name)",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the connection, identifying whether the connection was validated (UP), the connection timed out (DOWN), or the connection attempt failed for some other reason (ERROR)",
+          "enum": [
+            "UP",
+            "DOWN",
+            "ERROR"
+          ],
+          "type": "string",
+          "pattern": "^[A-Z]+[\\s]*[\\-]{0,1}[\\sa-zA-Z'/\\-_\\.&]{1,28}$",
+          "minLength": 2,
+          "maxLength": 30
+        }
+      }
+    },
+    "errorMessage": {
+      "description": "A type, used to characterize the problem and allow for routing within an error handler.\n",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 100
+    },
+    "inviteStatusCode": {
+      "description": "Status Code of the invite that identified the invite status EG: '01 - Active' OR '02 - Registered'\"\n",
+      "enum": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06"
+      ],
+      "example": "01",
+      "type": "string"
+    },
+    "userType": {
+      "description": "Role name given to a user",
+      "enum": [
+        "Healthcare Provider",
+        "Novocure Employee",
+        "HCP Staff",
+        "Commercial Patient",
+        "Caregiver"
+      ],
+      "example": "Healthcare Provider",
+      "type": "string"
+    },
+    "inviteEmail": {
+      "type": "string",
+      "pattern": "^.+@.+\\..+$",
+      "maxLength": 241
+    },
+    "inviteStatus": {
+      "description": "Status of the invite",
+      "enum": [
+        "Active",
+        "Registered",
+        "Deleted",
+        "Expired",
+        "TooManyAttempts",
+        "Invalidated"
+      ],
+      "example": "Registered",
+      "type": "string",
+      "pattern": "^[^\\s]+([\\s]+[^\\s]+)*$"
+    },
+    "inviteCode": {
+      "description": "The invite code that was generated and supplied to User",
+      "example": "320111",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9\\-_]{1,10}$",
+      "minLength": 4,
+      "maxLength": 10
+    },
+    "message": {
+      "description": "A message to return to the caller\n",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 250
+    }
+  },
+  "securityDefinitions": {
+    "lib.basicAuth": {
+      "type": "basic",
+      "x-amf-displayName": "BasicAuth",
+      "description": "This security scheme validates requests to the API using Basic authentication.\n",
+      "x-amf-describedBy": {
+        "headers": {
+          "Authorization": {
+            "description": "Used to send base64-encoded authorization.\n",
+            "type": "string"
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized."
+          }
+        }
+      }
+    }
+  }
+}
