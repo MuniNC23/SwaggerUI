@@ -1,0 +1,2064 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.31.0",
+    "title": "Verato UMPI",
+    "description": "Verato UMPI API",
+    "contact": {}
+  },
+  "host" : "<hostname>:<port>",
+  "basePath": "/link-ws/svc/",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "security": [
+    {
+      "Basic Auth Secure Scheme": []
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "Basic Auth Secure Scheme": {
+      "type": "basic"
+    }
+  },
+  "paths": {
+    "/mergeIdentities": {
+      "post": {
+        "description": "Merge two identities",
+        "summary": "mergeIdentities",
+        "operationId": "mergeIdentities",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_mergeIdentities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_mergeIdentities"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/unmergeIdentities": {
+      "post": {
+        "description": "Unmerge two identities",
+        "summary": "unmergeIdentities",
+        "operationId": "unmergeIdentities",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_unmergeIdentities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_unmergeIdentities"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/unlinkIdentities": {
+      "post": {
+        "description": "Unlink two identities",
+        "summary": "unlinkIdentities",
+        "operationId": "unlinkIdentities",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_unlinkIdentities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_unlinkIdentities"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/nativeIdQuery": {
+      "post": {
+        "description": "Query Using Native ID",
+        "summary": "nativeIdQuery",
+        "operationId": "nativeIdQuery",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_nativeIdQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_nativeIdQuery"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/searchNotifications": {
+      "post": {
+        "description": "Query Notifications",
+        "summary": "searchNotifications",
+        "operationId": "searchNotifications",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_searchNotifications"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_searchNotifications"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/identityIdQuery": {
+      "post": {
+        "description": "Query Using Link ID",
+        "summary": "identityIdQuery",
+        "operationId": "identityIdQuery",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_identityIdQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_identityIdQuery"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/createDataSource": {
+      "post": {
+        "description": "Create Data Sources for link",
+        "summary": "createDataSource",
+        "operationId": "createDataSource",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_createDataSource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_createDataSource"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/demographicsQuery": {
+      "post": {
+        "description": "Query Using Demographic Information",
+        "summary": "demographicsQuery",
+        "operationId": "demographicsQuery",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_demographicsQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_demographicsQuery"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/postIdentity": {
+      "post": {
+        "description": "Add an Identity to the link stack",
+        "summary": "postIdentity",
+        "operationId": "postIdentity",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_postIdentity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_postIdentity"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/linkIdentities": {
+      "post": {
+        "description": "Link two identities",
+        "summary": "linkIdentities",
+        "operationId": "linkIdentities",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_linkIdentities"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_linkIdentities"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/deleteSourceIdentity": {
+      "post": {
+        "description": "Delete A Source",
+        "summary": "deleteSourceIdentity",
+        "operationId": "deleteSourceIdentity",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_deleteSourceIdentity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_deleteSourceIdentity"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    },
+    "/demographicsSearch": {
+      "post": {
+        "description": "Search Using Demographic Information",
+        "summary": "demographicsSearch",
+        "operationId": "demographicsSearch",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "The web service request",
+            "schema": {
+              "$ref": "#/definitions/ServiceRequest_demographicsSearch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponse_demographicsSearch"
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Basic Auth Secure Scheme": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "SearchNotificationsWsRequest": {
+      "title": "SearchNotificationsWsRequest",
+      "description": "query notificiations for the customer",
+      "type": "object",
+      "properties": {
+        "pageNumber": {
+          "description": "Page number",
+          "type": "integer",
+          "format": "int32"
+        },
+        "endDate": {
+          "description": "End date",
+          "type": "string"
+        },
+        "pageSize": {
+          "description": "page size",
+          "type": "integer",
+          "format": "int32"
+        },
+        "startDate": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pageNumber",
+        "endDate",
+        "pageSize",
+        "startDate"
+      ]
+    },
+    "ServiceRequest_linkIdentities": {
+      "title": "ServiceRequest_linkIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/LinkIdentitiesWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "CreateDataSourcesWsRequest": {
+      "title": "CreateDataSourcesWsRequest",
+      "description": "adds sources",
+      "type": "object",
+      "properties": {
+        "sources": {
+          "description": "list of sources to be created",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "sources"
+      ]
+    },
+    "UnlinkIdentitiesWsRequest": {
+      "title": "UnlinkIdentitiesWsRequest",
+      "description": "a request by a customer to unlink ( extract) data from one Identity to create another",
+      "type": "object",
+      "properties": {
+        "unlinkFromSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "source": {
+          "$ref": "#/definitions/Source"
+        }
+      }
+    },
+    "ServiceRequest_demographicsSearch": {
+      "title": "ServiceRequest_demographicsSearch",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/DemographicsSearchWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "DeleteSourceIdentityWsResponse": {
+      "title": "DeleteSourceIdentityWsResponse",
+      "description": "Service response for a Source-based query",
+      "type": "object",
+      "properties": {
+        "linkIdsModified": {
+          "description": "The list of LINK ids that had information removed, but were not deleted",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linkIdsDeleted": {
+          "description": "The list of LINK ids that were deleted",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Address": {
+      "title": "Address",
+      "description": "API address model",
+      "type": "object",
+      "properties": {
+        "city": {
+          "description": "The address' city",
+          "type": "string"
+        },
+        "postalCode": {
+          "description": "The address' postal code.  This could be a zip code or a zipcode plus zip+4",
+          "type": "string"
+        },
+        "state": {
+          "description": "The address' state",
+          "type": "string"
+        },
+        "line2": {
+          "description": "Line two of the address.  Often not present.  When present, contains unit number and unit type.",
+          "type": "string"
+        },
+        "line1": {
+          "description": "line one of the address.  Commonly includes street number, street name, street direction, street type",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_nativeIdQuery": {
+      "title": "ServiceRequest_nativeIdQuery",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/NativeIdQueryWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "GenderPerSource": {
+      "title": "GenderPerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "gender": {
+          "description": "The Gender provided by this source",
+          "type": "string"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "Unmergeable": {
+      "title": "Unmergeable",
+      "type": "object",
+      "properties": {
+        "originSource": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "nativeId": {
+          "type": "string"
+        },
+        "originNativeId": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_unlinkIdentities": {
+      "title": "ServiceResponse_unlinkIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/UnlinkIdentitiesWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_demographicsQuery": {
+      "title": "ServiceRequest_demographicsQuery",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/DemographicsQueryWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "Name": {
+      "title": "Name",
+      "description": "Represents a person's name",
+      "type": "object",
+      "properties": {
+        "middle": {
+          "description": "The middle (given) name",
+          "type": "string"
+        },
+        "last": {
+          "description": "The last name (or surname or family name)",
+          "type": "string"
+        },
+        "suffix": {
+          "description": "The name suffix (PhD, IV, Jr, Esq)",
+          "type": "string"
+        },
+        "first": {
+          "description": "The first (given) name",
+          "type": "string"
+        }
+      }
+    },
+    "DemographicsQueryWsRequest": {
+      "title": "DemographicsQueryWsRequest",
+      "description": "Request object for demographics query",
+      "type": "object",
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        },
+        "responseIdentityFormatNames": {
+          "description": "(Acceptable values are: \"[DEFAULT\", \" GROUP_BY_SOURCE]\")",
+          "type": "array",
+          "default": ["DEFAULT","GROUP_BY_SOURCE"],
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "identity"
+      ]
+    },
+    "DatasourceCreationResponse": {
+      "title": "DatasourceCreationResponse",
+      "type": "object",
+      "properties": {
+        "datasource": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "SocialSecurityNumberPerSource": {
+      "title": "SocialSecurityNumberPerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "ssn": {
+          "description": "The Social Security Number provided by this source",
+          "type": "string"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_mergeIdentities": {
+      "title": "ServiceRequest_mergeIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/MergeIdentitiesWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_postIdentity": {
+      "title": "ServiceResponse_postIdentity",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/PostIdentityWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "AddressPerSource": {
+      "title": "AddressPerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "UnmergeIdentitiesWsResponse": {
+      "title": "UnmergeIdentitiesWsResponse",
+      "description": "When two identities have been merged by the MergeIdentities WebService , unmerge them by \n extracting the previously merged Identity into its own record.",
+      "type": "object",
+      "properties": {
+        "unmergedSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "unmergedFromSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "unmergedId": {
+          "description": "Link id of the Identity that was unmerged",
+          "type": "string"
+        },
+        "unmergedFromId": {
+          "description": "Link id of Identity unmerged from.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unmergedSource",
+        "unmergedFromSource",
+        "unmergedId",
+        "unmergedFromId"
+      ]
+    },
+    "ServiceRequest_unmergeIdentities": {
+      "title": "ServiceRequest_unmergeIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/UnmergeIdentitiesWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "Identity": {
+      "title": "Identity",
+      "description": "API object representing an identity",
+      "type": "object",
+      "properties": {
+        "mergedSourceRecords": {
+          "description": "The merged Source Histories associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Source"
+          }
+        },
+        "emails": {
+          "description": "The email addresses associated with this identity",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "addresses": {
+          "description": "The addresses associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "linkId": {
+          "description": "The link id of the Identity",
+          "type": "string"
+        },
+        "names": {
+          "description": "The names associated with the identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "ssns": {
+          "description": "The Social Security Numbers associated with the identity",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sources": {
+          "description": "The data sources incorporated into this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Source"
+          }
+        },
+        "genders": {
+          "description": "The genders associated with this identity",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "datesOfBirth": {
+          "description": "The dates of birth associated with the identity",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unmergeable": {
+          "description": "The unmergeable information of this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Unmergeable"
+          },
+          "uniqueItems": true
+        },
+        "phoneNumbers": {
+          "description": "The phone numbers associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Phone"
+          }
+        },
+        "properties": {
+          "description": "extended and custom attributes",
+          "type": "object"
+        }
+      }
+    },
+    "PhoneNumberPerSource": {
+      "title": "PhoneNumberPerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$ref": "#/definitions/Phone"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "PostIdentityWsResponse": {
+      "title": "PostIdentityWsResponse",
+      "description": "PostIdentity service response",
+      "type": "object",
+      "properties": {
+        "identityGroupedBySource": {
+          "description": "An alternative view of the link identity where information is grouped by the source. Present if the Request object contains \"GROUP_BY_SOURCE\" in its identity view names list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityPerSource"
+          }
+        },
+        "linkIdentity": {
+          "$ref": "#/definitions/Identity"
+        },
+        "linkId": {
+          "description": "The linkId of the posted Identity",
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "incomingIdentity": {
+          "$ref": "#/definitions/Identity"
+        }
+      }
+    },
+    "NotificationData": {
+      "title": "NotificationData",
+      "type": "object",
+      "properties": {
+        "partitionKey": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "notificationType": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_linkIdentities": {
+      "title": "ServiceResponse_linkIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/LinkIdentitiesWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "CreateDataSourcesWsResponse": {
+      "title": "CreateDataSourcesWsResponse",
+      "description": "Create datasource service response",
+      "type": "object",
+      "properties": {
+        "datasourceCreationResponses": {
+          "description": "A list of data source creation results.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DatasourceCreationResponse"
+          }
+        }
+      },
+      "required": [
+        "datasourceCreationResponses"
+      ]
+    },
+    "EmailPerSource": {
+      "title": "EmailPerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "email": {
+          "description": "The Email provided by this source",
+          "type": "string"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_unmergeIdentities": {
+      "title": "ServiceResponse_unmergeIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/UnmergeIdentitiesWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "DeleteSourceIdentityWsRequest": {
+      "title": "DeleteSourceIdentityWsRequest",
+      "description": "Deletes all information associated with the source provided within",
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/Source"
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "ServiceResponse_createDataSource": {
+      "title": "ServiceResponse_createDataSource",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/CreateDataSourcesWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_nativeIdQuery": {
+      "title": "ServiceResponse_nativeIdQuery",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/NativeIdQueryWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_demographicsSearch": {
+      "title": "ServiceResponse_demographicsSearch",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/DemographicsSearchWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "LinkIdentitiesWsResponse": {
+      "title": "LinkIdentitiesWsResponse",
+      "description": "When two identities have been linked by the LinkIdentities WebService, return the linkId of the primary Identity",
+      "type": "object",
+      "properties": {
+        "linkId": {
+          "description": "The linkId of the Identity that received data in a LinkIdentity request",
+          "type": "string"
+        },
+        "linkToSource": {
+          "$ref": "#/definitions/Source"
+        }
+      }
+    },
+    "ServiceResponse_demographicsQuery": {
+      "title": "ServiceResponse_demographicsQuery",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/DemographicsQueryWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_mergeIdentities": {
+      "title": "ServiceResponse_mergeIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/MergeIdentitiesWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "DemographicsQueryWsResponse": {
+      "title": "DemographicsQueryWsResponse",
+      "description": "Response object for demographics query",
+      "type": "object",
+      "properties": {
+        "identityGroupedBySource": {
+          "description": "An alternative view of the link identity where information is grouped by the source. Present if the Request object contains \"GROUP_BY_SOURCE\" in its identity view names list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityPerSource"
+          }
+        },
+        "linkId": {
+          "description": "(Acceptable values are: \"[null\", \" String]\")",
+          "example": "[null",
+          "type": "string",
+          "default": "[null"
+        },
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        }
+      }
+    },
+    "ServiceResponse_searchNotifications": {
+      "title": "ServiceResponse_searchNotifications",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/SearchNotificationsWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "DemographicsSearchResult": {
+      "title": "DemographicsSearchResult",
+      "type": "object",
+      "properties": {
+        "identityGroupedBySource": {
+          "description": "An alternative view of the link identity where information is grouped by the source. Present if the Request object contains \"GROUP_BY_SOURCE\" in its identity view names list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityPerSource"
+          }
+        },
+        "matchScore": {
+          "description": "Represents how well the \"Identity\" (or \"IdentityGroupedBySource\") is thought to match the identity provided in the request.",
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "format": "double"
+        },
+        "linkId": {
+          "description": "(Acceptable values are: \"[null\", \" String]\")",
+          "example": "[null",
+          "type": "string",
+          "default": "[null"
+        },
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        },
+        "sameIdentity": {
+          "$ref": "#/definitions/SameIdentity"
+        }
+      },
+      "required": [
+        "matchScore",
+        "sameIdentity"
+      ]
+    },
+    "ServiceResponse_deleteSourceIdentity": {
+      "title": "ServiceResponse_deleteSourceIdentity",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/DeleteSourceIdentityWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_unlinkIdentities": {
+      "title": "ServiceRequest_unlinkIdentities",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/UnlinkIdentitiesWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_deleteSourceIdentity": {
+      "title": "ServiceRequest_deleteSourceIdentity",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/DeleteSourceIdentityWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponse_identityIdQuery": {
+      "title": "ServiceResponse_identityIdQuery",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "success": {
+          "description": "If the response is the result of a successful processing of the action this will be true",
+          "type": "boolean"
+        },
+        "retryableError": {
+          "description": "true if the response indicates the service failed with a retryable error",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "A service may send back any kind of message it deems appropriate, or none\n\t at all. In the case where the response indicates a failure, the message\n\t would likely indicate an error.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/IdentityIdQueryWsResponse"
+        },
+        "errors": {
+          "description": "standard format errors collection",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "IdentityPerSource": {
+      "title": "IdentityPerSource",
+      "description": "API object representing an identity, with information grouped by the single source that provided that information (this may include multiple updates, as expressed in the \"lastAsserted\" and \"firstAsserted\" properties).",
+      "type": "object",
+      "properties": {
+        "emails": {
+          "description": "The email addresses associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmailPerSource"
+          }
+        },
+        "addresses": {
+          "description": "The addresses associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressPerSource"
+          }
+        },
+        "names": {
+          "description": "The names associated with the identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NamePerSource"
+          }
+        },
+        "ssns": {
+          "description": "The Social Security Numbers associated with the identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SocialSecurityNumberPerSource"
+          }
+        },
+        "mergedSourceRecord": {
+          "$ref": "#/definitions/Source"
+        },
+        "genders": {
+          "description": "The genders associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GenderPerSource"
+          }
+        },
+        "source": {
+          "$ref": "#/definitions/Source"
+        },
+        "datesOfBirth": {
+          "description": "The dates of birth associated with the identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DatesOfBirthPerSource"
+          }
+        },
+        "phoneNumbers": {
+          "description": "The phone numbers associated with this identity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PhoneNumberPerSource"
+          }
+        }
+      }
+    },
+    "Source": {
+      "title": "Source",
+      "description": "Represents the information tracking an identity to a source that contains the identity",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the data source.  Must be unique across Verato.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The ID of an identity within the given data source.",
+          "type": "string"
+        }
+      }
+    },
+    "Phone": {
+      "title": "Phone",
+      "description": "Represents a phone number",
+      "type": "object",
+      "properties": {
+        "number": {
+          "description": "The phone number, exclusive of country code and extension",
+          "type": "string"
+        },
+        "areaCode": {
+          "description": "The area for this phone number.",
+          "type": "string"
+        },
+        "extension": {
+          "description": "The extension for this phone number.",
+          "type": "string"
+        },
+        "countryCode": {
+          "description": "The country code associated with this phone number",
+          "type": "string"
+        }
+      }
+    },
+    "AuditID": {
+      "title": "AuditID",
+      "description": "AuditID container",
+      "type": "object",
+      "properties": {
+        "get": {
+          "description": "Transaction Audit ID",
+          "type": "string"
+        }
+      }
+    },
+    "MergeIdentitiesWsRequest": {
+      "title": "MergeIdentitiesWsRequest",
+      "description": "Request by a customer to (merge/retire) data from one Source into another",
+      "type": "object",
+      "properties": {
+        "toSurviveSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "toRetireSource": {
+          "$ref": "#/definitions/Source"
+        }
+      },
+      "required": [
+        "toSurviveSource",
+        "toRetireSource"
+      ]
+    },
+    "UnmergeIdentitiesWsRequest": {
+      "title": "UnmergeIdentitiesWsRequest",
+      "description": "a request by a customer to unmerge ( extract) data from retired section of one Identity to create another new Identity",
+      "type": "object",
+      "properties": {
+        "unmergeFromSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "unmergeSource": {
+          "$ref": "#/definitions/Source"
+        }
+      }
+    },
+    "LinkIdentitiesWsRequest": {
+      "title": "LinkIdentitiesWsRequest",
+      "description": "Represents a request by a customer to link data from one Identity into another. Generally, this means linking two source + native ID combinations from different sources.",
+      "type": "object",
+      "properties": {
+        "linkToSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "source": {
+          "$ref": "#/definitions/Source"
+        }
+      },
+      "required": [
+        "linkToSource",
+        "source"
+      ]
+    },
+    "NativeIdQueryWsRequest": {
+      "title": "NativeIdQueryWsRequest",
+      "description": "Queries link database using source information",
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/Source"
+        },
+        "responseIdentityFormatNames": {
+          "description": "(Acceptable values are: \"[DEFAULT\", \" GROUP_BY_SOURCE]\")",
+          "type": "array",
+          "default": ["DEFAULT","GROUP_BY_SOURCE"],
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "ServiceRequest_identityIdQuery": {
+      "title": "ServiceRequest_identityIdQuery",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/IdentityIdQueryWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "NamePerSource": {
+      "title": "NamePerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_createDataSource": {
+      "title": "ServiceRequest_createDataSource",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/CreateDataSourcesWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "IdentityIdQueryWsResponse": {
+      "title": "IdentityIdQueryWsResponse",
+      "description": "Response object for query by linkId",
+      "type": "object",
+      "properties": {
+        "identityGroupedBySource": {
+          "description": "An alternative view of the link identity where information is grouped by the source. Present if the Request object contains \"GROUP_BY_SOURCE\" in its identity view names list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityPerSource"
+          }
+        },
+        "linkId": {
+          "description": "(Acceptable values are: \"[null\", \" String]\")",
+          "example": "[null",
+          "type": "string",
+          "default": "[null"
+        },
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        },
+        "requestedLinkId": {
+          "description": "The linkId used in the original query",
+          "type": "string"
+        }
+      }
+    },
+    "ServiceRequest_searchNotifications": {
+      "title": "ServiceRequest_searchNotifications",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/SearchNotificationsWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "DemographicsSearchWsResponse": {
+      "title": "DemographicsSearchWsResponse",
+      "description": "Response object for demographics query",
+      "type": "object",
+      "properties": {
+        "searchResults": {
+          "description": "A list of search results in order of best to worst match for the Identity provided in the request. Empty if no matches were found.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DemographicsSearchResult"
+          }
+        }
+      },
+      "required": [
+        "searchResults"
+      ]
+    },
+    "DatesOfBirthPerSource": {
+      "title": "DatesOfBirthPerSource",
+      "type": "object",
+      "properties": {
+        "firstAsserted": {
+          "description": "The date the source first saw this property value.",
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "description": "The Date Of Birth provided by this source",
+          "type": "string"
+        },
+        "lastAsserted": {
+          "description": "The date the source last saw this property value.",
+          "type": "string"
+        }
+      }
+    },
+    "SearchNotificationsWsResponse": {
+      "title": "SearchNotificationsWsResponse",
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "description": "The name of the customer for the notifications",
+          "type": "string"
+        },
+        "hasNext": {
+          "description": "Boolean to determinate if there are more elements",
+          "type": "boolean"
+        },
+        "notifications": {
+          "description": "The notifications retrieved",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NotificationData"
+          }
+        },
+        "totalElements": {
+          "description": "The number of notifications retrieved",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "UnlinkIdentitiesWsResponse": {
+      "title": "UnlinkIdentitiesWsResponse",
+      "description": "When two identities have been linked by the LinkIdentities WebService, unlink them by extracting the previously linked Identity into its own record.",
+      "type": "object",
+      "properties": {
+        "unlinkedId": {
+          "description": "Link id of the Identity that was unlinked",
+          "type": "string"
+        },
+        "unlinkedSource": {
+          "$ref": "#/definitions/Source"
+        },
+        "unlinkedFromId": {
+          "description": "Link id of Identity unlinked from.",
+          "type": "string"
+        },
+        "unlinkedFromSource": {
+          "$ref": "#/definitions/Source"
+        }
+      },
+      "required": [
+        "unlinkedId",
+        "unlinkedSource",
+        "unlinkedFromId",
+        "unlinkedFromSource"
+      ]
+    },
+    "DemographicsSearchWsRequest": {
+      "title": "DemographicsSearchWsRequest",
+      "description": "Request object for demographics query",
+      "type": "object",
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        },
+        "matchScoreThreshold": {
+          "description": "Only identities with match scores equal to or above this value will appear in the response. If not provided, then no filtering based on match score is performed.",
+          "type": "number",
+          "format": "double"
+        },
+        "maxSearchResults": {
+          "description": "The number of results to return at one time. Must be greater than 0. If not provided, the system's maximum number of results will be returned. Note that while very large values are acceptable, the system has a default maximum, and the response will include a warning message if that maximum is exceeded.",
+          "type": "integer",
+          "minimum": 1.0,
+          "maximum": 100000000.0,
+          "format": "int32"
+        },
+        "responseIdentityFormatNames": {
+          "description": "(Acceptable values are: \"[DEFAULT\", \" GROUP_BY_SOURCE]\")",
+          "type": "array",
+          "default": ["DEFAULT","GROUP_BY_SOURCE"],
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "identity"
+      ]
+    },
+    "MergeIdentitiesWsResponse": {
+      "title": "MergeIdentitiesWsResponse",
+      "description": "When two identities have been merged by the MergeIdentities WebService , return the linkId of the primary Identity",
+      "type": "object",
+      "properties": {
+        "linkId": {
+          "description": "Return the linkId of the Identity that recieved merged/retired data during a MergeIdentity request",
+          "type": "string"
+        },
+        "toSurviveSource": {
+          "$ref": "#/definitions/Source"
+        }
+      }
+    },
+    "NativeIdQueryWsResponse": {
+      "title": "NativeIdQueryWsResponse",
+      "description": "Service response for a Source-based query",
+      "type": "object",
+      "properties": {
+        "identityGroupedBySource": {
+          "description": "An alternative view of the link identity where information is grouped by the source. Present if the Request object contains \"GROUP_BY_SOURCE\" in its identity view names list.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityPerSource"
+          }
+        },
+        "linkId": {
+          "description": "(Acceptable values are: \"[null\", \" String]\")",
+          "example": "[null",
+          "type": "string",
+          "default": "[null"
+        },
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        }
+      }
+    },
+    "PostIdentityWsRequest": {
+      "title": "PostIdentityWsRequest",
+      "description": "adds a new identity to the LINK database",
+      "type": "object",
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/Identity"
+        },
+        "responseIdentityFormatNames": {
+          "description": "(Acceptable values are: \"[DEFAULT\", \" GROUP_BY_SOURCE]\")",
+          "type": "array",
+          "default": ["DEFAULT","GROUP_BY_SOURCE"],
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "identity"
+      ]
+    },
+    "ServiceRequest_postIdentity": {
+      "title": "ServiceRequest_postIdentity",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "$ref": "#/definitions/AuditID"
+        },
+        "content": {
+          "$ref": "#/definitions/PostIdentityWsRequest"
+        },
+        "trackingId": {
+          "description": "The Transaction Tracking ID",
+          "type": "string"
+        }
+      }
+    },
+    "IdentityIdQueryWsRequest": {
+      "title": "IdentityIdQueryWsRequest",
+      "description": "Request object used to query by LinkId",
+      "type": "object",
+      "properties": {
+        "linkId": {
+          "description": "The linkId to query for",
+          "type": "string"
+        },
+        "responseIdentityFormatNames": {
+          "description": "(Acceptable values are: \"[DEFAULT\", \" GROUP_BY_SOURCE]\")",
+          "type": "array",
+          "default": ["DEFAULT","GROUP_BY_SOURCE"],
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "linkId"
+      ]
+    },
+    "SameIdentity": {
+      "title": "SameIdentity",
+      "description": "Represents whether or not the \"Identity\" (or \"IdentityGroupedBySource\") is thought to be the same identity as provided in the request.",
+      "example": "Y",
+      "type": "string",
+      "enum": [
+        "Y",
+        "U",
+        "N"
+      ]
+    }
+  },
+  "tags": []
+}
